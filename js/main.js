@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Close menu when clicking on a link (for mobile)
-        const navLinks = navMenu.querySelectorAll('a');
+        const navLinks = navMenu.querySelectorAll('a:not(.dropbtn)');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
                 if (window.innerWidth <= 768) {
@@ -26,6 +26,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     menuToggle.innerHTML = '<i class="fas fa-bars"></i> Menu';
                 }
             });
+        });
+    }
+
+    // Mobile Dropdown Toggle
+    const dropdown = document.querySelector('.dropdown');
+    const dropbtn = document.querySelector('.dropbtn');
+
+    if (dropdown && dropbtn) {
+        dropbtn.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+            }
         });
     }
 });
