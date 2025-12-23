@@ -103,6 +103,17 @@ header {
     align-items: center;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-image {
+    height: 60px;
+    width: auto;
+}
+
 .logo h1 {
     color: var(--primary-green);
     margin: 0;
@@ -173,6 +184,71 @@ nav ul li a {
 
 nav ul li a:hover {
     background-color: var(--primary-green);
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown .dropbtn {
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--dark-green);
+    min-width: 250px;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    padding: 0;
+}
+
+.dropdown-content li {
+    width: 100%;
+}
+
+.dropdown-content li a {
+    padding: 0.75rem 1.5rem;
+    display: block;
+    white-space: nowrap;
+}
+
+.dropdown-content li a:hover {
+    background-color: var(--primary-green);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown .fa-chevron-down {
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
+}
+
+/* Dropdown Scrollbar Styling */
+.dropdown-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+    background: var(--dark-green);
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+    background: var(--primary-green);
+    border-radius: 4px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-gold);
 }
 
 /* Mobile Menu Toggle */
@@ -323,6 +399,15 @@ footer p {
         text-align: center;
     }
 
+    .logo {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .logo-image {
+        height: 50px;
+    }
+
     .header-buttons {
         margin-top: 1rem;
         flex-direction: column;
@@ -349,6 +434,27 @@ footer p {
 
     nav ul li a {
         text-align: center;
+    }
+
+    /* Mobile Dropdown */
+    .dropdown-content {
+        position: static;
+        display: none;
+        box-shadow: none;
+        background-color: var(--primary-green);
+        width: 100%;
+    }
+
+    .dropdown.active .dropdown-content {
+        display: block;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: none;
+    }
+
+    .dropdown.active:hover .dropdown-content {
+        display: block;
     }
 
     .hero {
